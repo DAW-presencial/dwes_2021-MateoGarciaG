@@ -28,15 +28,17 @@ Solución Práctica Agenda sin uso de session, archivo externo o base de datos
   {
     if (empty($nombreParam)) {
       echo "<script> alert(\"Debes ingresar un nombre para registrar el contacto \"); </script>";
-      // Utilizo la función "array_key_exists() para comprobar que el nombre introducido existe dentro del array"
-    } elseif (
+    }
+    // Utilizo la función "array_key_exists() para comprobar que el nombre introducido existe dentro del array"
+    elseif (
       empty($numeroParam) &&
       array_key_exists($nombreParam, $agendaContactos)
     ) {
-      echo "Has eliminado el contacto: $nombreParam";
+      echo "<b>Has eliminado el contacto: $nombreParam </b>";
 
       unset($agendaContactos[$nombreParam]);
-
+    } elseif (empty($numeroParam)) {
+      echo "<script> alert(\"Este nombre no aparece en tu lista de contactos \"); </script>";
     } else {
       $agendaContactos[$nombreParam] = $numeroParam;
     }
