@@ -1,5 +1,6 @@
+
 <!-- 
-Solución Práctica Agenda sin uso de session, archivo externo o base de datos
+Solución Práctica Agenda con uso de session, archivo externo o base de datos
 
 -->
 
@@ -22,7 +23,6 @@ Solución Práctica Agenda sin uso de session, archivo externo o base de datos
   <br>
 
   <?php
-
 
   if (isset($_GET["agendaContactos"])) {
     $agendaContactos = $_GET["agendaContactos"];
