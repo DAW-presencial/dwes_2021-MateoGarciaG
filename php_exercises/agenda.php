@@ -33,9 +33,25 @@ Solución Práctica Agenda sin uso de session, archivo externo o base de datos
   if (isset($_GET['submit'])) {
 
     $nombre_nuevo = filter_input(INPUT_GET, "nombre");
-    $numero_nuevo = filter_input(INPUT_GET, "numero");
+    $telefono_nuevo = filter_input(INPUT_GET, "numero");
 
-    chequearNoEsteVacio($nombre_nuevo, $numero_nuevo, $agendaContactos);
+    if (empty($nombre_nuevo)) {
+      echo "<script> alert(\"Debes ingresar un nombre para registrar el contacto \"); </script>";
+    }
+    // Utilizo la función "array_key_exists() para comprobar que el nombre introducido existe dentro del array"
+    elseif (
+      empty($telefono_nuevo) &&
+      array_key_exists($nombre_nuevo, $agendaContactos)
+    ) {
+      echo "<b>Has eliminado el contacto: $nombre_nuevo </b>";
+
+      unset($agendaContactos[$nombre_nuevo]);
+    } elseif (empty($telefono_nuevo)) {
+      echo "<script> alert(\"Este nombre no aparece en tu lista de contactos \"); </script>";
+    } else {
+      $agendaContactos[$nombre_nuevo] = $telefono_nuevo;
+    }
+
   }
 
 
@@ -78,29 +94,6 @@ Solución Práctica Agenda sin uso de session, archivo externo o base de datos
     } else {
       echo "<h3 style=\"color: blue\"> No tienes contactos en la agenda aún </h3>";
     }
-
-
-    
-  // Expongo que sea por paso de referencia para así asegurarme de que lo que le llega es el valor de los input
-  function chequearNoEsteVacio(&$nombreParam, &$numeroParam, &$agendaContactos)
-  {
-    if (empty($nombreParam)) {
-      echo "<script> alert(\"Debes ingresar un nombre para registrar el contacto \"); </script>";
-    }
-    // Utilizo la función "array_key_exists() para comprobar que el nombre introducido existe dentro del array"
-    elseif (
-      empty($numeroParam) &&
-      array_key_exists($nombreParam, $agendaContactos)
-    ) {
-      echo "<b>Has eliminado el contacto: $nombreParam </b>";
-
-      unset($agendaContactos[$nombreParam]);
-    } elseif (empty($numeroParam)) {
-      echo "<script> alert(\"Este nombre no aparece en tu lista de contactos \"); </script>";
-    } else {
-      $agendaContactos[$nombreParam] = $numeroParam;
-    }
-  }
 
 
     ?>
