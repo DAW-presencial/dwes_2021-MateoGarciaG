@@ -5,6 +5,7 @@
 Justificación: 
   1.Se activan las funciones del padre?: Tanto en la clase padre como en la hija, se activan el __get() y __set(), lo que sucede es que en el hijo se llama dos vecess
   2. Como afecta a la subclase que una propiedad sea privada o protegida en la clase padre?: La subclase puede llamar a una propiedad PROTECTED y PRIVATE mediante __get() y __set() 
+  
 */
 
 
