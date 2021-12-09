@@ -4,7 +4,10 @@
 
 
 /* 
-Justificación: Como vemos la propiedad una vez instanciado el objeto, le agregramos la propiedad textura y la leemos para comprobar que si haya creado. Después utilizando la función get_class_vars() y property_exists compruebo si la propiedad fue añadida a la clase, al objeto con isset(). Donde la propiedad pertenece al objeto donde fue creada, en este ejemplo al objeto $pepino
+Justificación: Como vemos, la propiedad una vez instanciado el objeto, le agregramos la propiedad textura y la leemos 
+para comprobar que si haya creado. Después utilizando la función get_class_vars() y property_exists compruebo si la 
+propiedad fue añadida a la clase, al objeto con isset(). Donde la propiedad pertenece al objeto donde fue creada, en 
+este ejemplo al objeto $pepino
 
 */
 
@@ -24,7 +27,7 @@ class Verdura {
       return $this->comestible;
   }
 
-  function qué_color()
+  function que_color()
   {
       return $this->color;
   }
