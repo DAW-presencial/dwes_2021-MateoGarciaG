@@ -26,7 +26,7 @@
         move_uploaded_file($_FILES["archivo2"]['tmp_name'], './subidos/' . $archivo['name']);
     }
 ////////////////    Corrección
-
+/*
             foreach ($_FILES as $archivo) {
 
                 print_r("Nombre de archivo:" . $archivo["name"] . "<br>");
@@ -41,6 +41,7 @@
                 }
             }
         }
+ */
 ///////////////
 
     }
