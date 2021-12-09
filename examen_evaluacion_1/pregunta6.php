@@ -25,7 +25,23 @@
       if ($archivo['error'] == 0) {
         move_uploaded_file($_FILES["archivo2"]['tmp_name'], './subidos/' . $archivo['name']);
     }
+////////////////    Corrección
 
+            foreach ($_FILES as $archivo) {
+
+                print_r("Nombre de archivo:" . $archivo["name"] . "<br>");
+                print_r("Tipo de archivo:" . $archivo["type"] . "<br>");
+                print_r("Tamaño de archivo:" . $archivo["size"] . "<br>");
+                print_r("Tmp_name/ruta de archivo:" . $archivo["tmp_name"] . "<br>");
+                print_r("Error de archivo:" . $archivo["error"] . "<br>");
+                $_FILES["archivo2"]["type"] = "text/plain";
+
+                if ($archivo['error'] == 0) {
+                    move_uploaded_file($archivo['tmp_name'], 'subidos/' . $archivo['name']);
+                }
+            }
+        }
+///////////////
 
     }
   }
